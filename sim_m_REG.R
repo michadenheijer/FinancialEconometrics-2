@@ -1,5 +1,4 @@
 sim_m_REG <- function(e,x,par){
-  
   a0 <- par[1]
   a1 <- exp(par[2])/(1+exp(par[2]))
   s_eta <- exp(par[3]) 
@@ -31,6 +30,7 @@ sim_m_REG <- function(e,x,par){
     yr <- y-hb*x
     
     xy <- yr*x
+   
     acvfxy <- acf(xy, lag.max=15, type ="covariance", plot=F)$acf[-1]
     
     output <- output+c(var(yr),hb,acvfxy)/M
